@@ -23,7 +23,7 @@ Write-Host "checking on host" $item.vc
 
     #$userpermission = Get-VIPermission | ? { ($_.Principal -like "*svcvraadadmin*") -or ($_.Principal -like "*svcvraadmin*") }
 
-    $userpermission = Get-VIPermission | ? { ($_.Principal -like "*PRV_AIGGS_VMW_Build*") -or ($_.Principal -like "*PRV_AIGGS_VMW_Build*") }
+    $userpermission = Get-VIPermission | ? { ($_.Principal -like "*grop/username*") -or ($_.Principal -like "*grop/username*") }
 
     
 
@@ -45,7 +45,7 @@ foreach ($item in $vclist) {
     Write-Host "checking on host" $item.vc
         Connect-VIServer $item.vc -User $item.user -Password $item.pass
     
-        $userpermission = Get-VIPermission | ? {($_.Principal -like "*svcvraadmin*") -and ($_.Role -like "*ReadOnly*") }
+        $userpermission = Get-VIPermission | ? {($_.Principal -like "*usrname*") -and ($_.Role -like "*ReadOnly*") }
 
         
     
